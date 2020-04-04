@@ -1,9 +1,10 @@
 language: python
-python: 3.8.1
+python:
+  - 3.8.1
 deploy:
-  provider: heroku
-  api_key:
-    secure: l0EgSfvKv5JEN8zgD2s2GJ/tkUHX7/4MBkjFwJSHoBYye9cnsA2BT+11uVRyzOUj3gwWqmA18vZ59Fry18yJgJOFHBddCZOMKMVTRTuVv94CM0CgJR5b/RzIwPiFkG2K2o2dTevDIfnzaWdUCsFCj2qEbkYOvCkw9oDpTmY3CgPO7js1qjUUinFT3GNzT2sO63YcFj8tQh+VdIpAn9k7EOxX2NskOeTTLM16pGey3cZn4P/GZj8irtkof+5sVNKWOWL0FvAU5vYwfPzlofXK/a/GsB1FIBOj4b22tyEgwtO5toBRcpB2gR+Pw/6Oo4gzqDE9ePnOuCGZyfNrY6JLNGEm4YRs5p9RPgrf/IllEzcI0G3fwzu60sWX6+Thx8jRNGABpbzVQFMxjdMxlhI6mahuh6JvjXnLfP7CXj7Xls80F0Uw7qZa6TSYc0TLAddfY8drJ7RpPyPyHOuQVhp3almk5nvU5f3CEdNA7QziSn0UHsqqPNwd4G2pHAxFIj9Nn1Ds6nyViVS0SKV0v+R6VoHdCV5xI33Qk9mPOsLt5uRXLOA0fmv3fp6XrH3Pi4UaNt1aTdC6F88UAooVlODxHgEgEqwZH+YtWrGNsmyxKY+oZBb/3mxXAr8McKe/lWj04RDDq8d86nL/AKRv9sDe9Nfbd77MLOBkTLTacUuHaVo=
-  app: hangry-ateball-pipeline
-  on:
-    repo: hangry-ateball/hangry-ateball-be
+  - provider: heroku
+    api_key:
+      secure: l0EgSfvKv5JEN8zgD2s2GJ/tkUHX7/4MBkjFwJSHoBYye9cnsA2BT+11uVRyzOUj3gwWqmA18vZ59Fry18yJgJOFHBddCZOMKMVTRTuVv94CM0CgJR5b/RzIwPiFkG2K2o2dTevDIfnzaWdUCsFCj2qEbkYOvCkw9oDpTmY3CgPO7js1qjUUinFT3GNzT2sO63YcFj8tQh+VdIpAn9k7EOxX2NskOeTTLM16pGey3cZn4P/GZj8irtkof+5sVNKWOWL0FvAU5vYwfPzlofXK/a/GsB1FIBOj4b22tyEgwtO5toBRcpB2gR+Pw/6Oo4gzqDE9ePnOuCGZyfNrY6JLNGEm4YRs5p9RPgrf/IllEzcI0G3fwzu60sWX6+Thx8jRNGABpbzVQFMxjdMxlhI6mahuh6JvjXnLfP7CXj7Xls80F0Uw7qZa6TSYc0TLAddfY8drJ7RpPyPyHOuQVhp3almk5nvU5f3CEdNA7QziSn0UHsqqPNwd4G2pHAxFIj9Nn1Ds6nyViVS0SKV0v+R6VoHdCV5xI33Qk9mPOsLt5uRXLOA0fmv3fp6XrH3Pi4UaNt1aTdC6F88UAooVlODxHgEgEqwZH+YtWrGNsmyxKY+oZBb/3mxXAr8McKe/lWj04RDDq8d86nL/AKRv9sDe9Nfbd77MLOBkTLTacUuHaVo=
+    app: hangry-ateball-pipeline
+    on:
+      repo: hangry-ateball/hangry-ateball-be
