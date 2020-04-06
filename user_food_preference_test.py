@@ -1,7 +1,7 @@
 import requests
 import json
 import pdb
-from app import app
+from base import app
 from flask import Flask
 from instance import config
 
