@@ -2,18 +2,20 @@ import requests
 import json
 import pdb
 from flask import Flask
+from instance import config
 from base import app
 
 def test_user_selects_food_preference_returns_successful_response():
     client = app.test_client()
 
-    headers = { 'authorization': config.YELP_API_KEY }
+    headers = { 'authorization': 'Bearer ' + config.YELP_API_KEY }
     lat = '39.7392358'
     long = '-104.990251'
     cuisine = 'indian'
-    params = { 'latitude': lat, 'longitude': long, 'categories': cuisine }
-    response = client.get("/api/v1/recommendations?latitude=% s&longitude=% s&categories=% s"%(lat, long, cuisine))
-    response_body = json.loads(response.data.decode('utf8'))
+
+    response = client.get("/api/v1/recommendations?latitude={}&longitude={}&categories={}".format(lat, long, cuisine))
+
+    response_body = response.json
 
     assert response.status_code == 200
     assert 'id' in response_body['data']
@@ -26,7 +28,7 @@ def test_user_selects_food_preference_returns_successful_response():
     assert 'rating' in response_body['data']['attributes']
 
 def test_user_selects_food_preference_returns_restaurant_data():
-    headers = { 'authorization': config.YELP_API_KEY }
+    headers = { 'authorization': 'Bearer ' + config.YELP_API_KEY }
     lat = '39.7392358'
     long = '-104.990251'
     cuisine = 'indian'
