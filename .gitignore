@@ -1,7 +1,8 @@
 __pycache__
 .pytest_cache
-
 get-pip.py
-
-instance
+instance/
 venv
+.idea
+*.pyc
+prodenv/
