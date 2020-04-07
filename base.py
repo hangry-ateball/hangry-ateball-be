@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 @app.route('/api/v1/recommendations', methods=['GET'])
 def index():
-    headers = { 'authorization': config.YELP_API_KEY }
+    headers = { 'authorization': "Bearer " + config.YELP_API_KEY }
     lat = request.args['latitude']
     long = request.args['longitude']
     cuisine = request.args['categories']
