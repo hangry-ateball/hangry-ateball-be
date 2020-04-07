@@ -2,7 +2,6 @@ from flask import Flask, request
 import json
 import requests
 import random
-from instance import config
 from restaurant import Restaurant
 from restaurant_schema import RestaurantSchema
 from marshmallow_jsonapi import Schema, fields

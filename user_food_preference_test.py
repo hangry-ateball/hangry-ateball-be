@@ -2,7 +2,6 @@ import requests
 import json
 import pdb
 from flask import Flask
-from instance import config
 from base import app
 
 def test_user_selects_food_preference_returns_successful_response():
