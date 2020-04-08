@@ -1,1 +1,10 @@
+__pycache__
+.pytest_cache
+
+get-pip.py
+
+instance
 venv
+
+.env
+.idea
