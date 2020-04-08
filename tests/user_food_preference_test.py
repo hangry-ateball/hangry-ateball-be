@@ -1,15 +1,14 @@
 import os
 from dotenv import load_dotenv
 load_dotenv()
-api_key = os.getenv('YELP_API_KEY')
+YELP_API_KEY = os.getenv('YELP_API_KEY')
 import requests
-from instance import config
 from base_app.base import app
 
 def test_user_selects_food_preference_returns_successful_response():
     client = app.test_client()
 
-    headers = { 'authorization': 'Bearer ' + api_key }
+    headers = { 'authorization': 'Bearer ' + YELP_API_KEY }
     lat = '39.7392358'
     long = '-104.990251'
     cuisine = 'indian'
@@ -29,7 +28,7 @@ def test_user_selects_food_preference_returns_successful_response():
     assert 'rating' in response_body['data']['attributes']
 
 def test_user_selects_food_preference_returns_restaurant_data():
-    headers = { 'authorization': 'Bearer ' + api_key }
+    headers = { 'authorization': 'Bearer ' + YELP_API_KEY }
     lat = '39.7392358'
     long = '-104.990251'
     cuisine = 'indian'
