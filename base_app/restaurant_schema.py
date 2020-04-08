@@ -1,6 +1,5 @@
 from marshmallow_jsonapi import Schema, fields
-from collections import OrderedDict
-from restaurant import Restaurant
+
 
 class RestaurantSchema(Schema):
     id = fields.Str()
