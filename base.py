@@ -1,17 +1,19 @@
 import json
+import os
 import random
 import requests
 from flask import Flask, request
-from instance import config
 from marshmallow_jsonapi import Schema, fields
 from restaurant import Restaurant
 from restaurant_schema import RestaurantSchema
+from dotenv import load_dotenv
+load_dotenv()
 
 app = Flask(__name__)
 
 @app.route('/api/v1/recommendations', methods=['GET'])
 def index():
-    headers = {'authorization': 'Bearer ' + config.YELP_API_KEY}
+    headers = {'authorization': 'Bearer ' + os.getenv('YELP_API_KEY')}
     lat = request.args['latitude']
     long = request.args['longitude']
     cuisine = request.args['categories']

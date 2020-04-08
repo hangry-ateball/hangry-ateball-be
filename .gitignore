@@ -6,4 +6,5 @@ get-pip.py
 instance
 venv
 
+.env
 .idea

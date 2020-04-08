@@ -1,9 +1,11 @@
 import json
+import os
 import pdb
 import requests
 from base import app
 from flask import Flask
-from instance import config
+from dotenv import load_dotenv
+load_dotenv()
 
 def test_user_selects_food_preference_returns_successful_response():
     lat = '39.7392358'
@@ -28,11 +30,11 @@ def test_user_selects_food_preference_returns_successful_response():
     assert 'price' in response_body['data']['attributes']
 
 def test_user_selects_food_preference_returns_restaurant_data():
-    headers = { 'authorization': 'Bearer ' + config.YELP_API_KEY }
+    headers = {'authorization': 'Bearer ' + os.getenv('YELP_API_KEY')}
     lat = '39.7392358'
     long = '-104.990251'
     cuisine = 'indian'
-    params = { 'latitude': lat, 'longitude': long, 'term': cuisine }
+    params = {'latitude': lat, 'longitude': long, 'term': cuisine}
     url = "https://api.yelp.com/v3/businesses/search"
 
     response = requests.get(url, params=params, headers=headers)
