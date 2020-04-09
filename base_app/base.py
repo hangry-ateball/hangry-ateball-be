@@ -16,10 +16,13 @@ def index():
     headers = {'authorization': 'Bearer ' + YELP_API_KEY}
     lat = request.args['latitude']
     long = request.args['longitude']
-    cuisine = request.args['categories']
-    params = {'latitude': f'{lat}', 'longitude': f'{long}', 'term': f'{cuisine}'}
     url = 'https://api.yelp.com/v3/businesses/search'
-
+    if 'price' in request.args.keys():
+        price = request.args['price']
+        params = {'latitude': f'{lat}', 'longitude': f'{long}', 'price': f'{price}'}
+    elif 'categories' in request.args.keys():
+        cuisine = request.args['categories']
+        params = {'latitude': f'{lat}', 'longitude': f'{long}', 'term': f'{cuisine}'}
     response = requests.get(url, params=params, headers=headers)
     json_data = json.dumps(response.json())
     restaurants = Restaurant.from_json(json_data)
