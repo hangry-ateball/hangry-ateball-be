@@ -17,7 +17,7 @@ def test_user_selects_food_preference_returns_successful_response():
 
     response_body = response.json
 
-    assert 'id' in response_body ['data']
+    assert 'id' in response_body['data']
     assert 'cuisine' in response_body['data']['attributes']
     assert 'name' in response_body['data']['attributes']
     assert 'location' in response_body['data']['attributes']
