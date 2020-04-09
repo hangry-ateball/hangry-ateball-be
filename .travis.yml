@@ -6,7 +6,9 @@ before_install:
 install:
 - pip install -r requirements.txt
 script:
-- pytest
+- coverage erase
+- coverage run -m pytest && coverage html
+
 deploy:
 - provider: heroku
   api_key:

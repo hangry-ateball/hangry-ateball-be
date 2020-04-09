@@ -1,10 +1,11 @@
 __pycache__
-.pytest_cache
-
-get-pip.py
-
-instance
-venv
+.coverage
 *.pyc
 .env
 .idea
+.pytest_cache
+get-pip.py
+htmlcov/
+instance
+venv
+

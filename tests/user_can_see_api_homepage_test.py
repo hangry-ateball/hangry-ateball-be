@@ -13,4 +13,4 @@ def test_homepage_returns_documentation_info():
     client = app.test_client()
     response = client.get(url)
     text = response.data
-    assert text == 'Welcome to the Hangry-8Ball API'
+    assert text == b'<h1>Welcome to the Hangry-8Ball API!</h1><p>Enter API documentation and endpoints here.</p>'
