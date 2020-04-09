@@ -1,7 +1,7 @@
 import json
 
 class Restaurant:
-    def __init__(self, id, categories, name, location, phone, display_phone, rating, price):
+    def __init__(self, id, name, categories, location, phone, display_phone, rating, price):
         self.id = id
         self.cuisine = categories
         self.name = name
