@@ -10,6 +10,10 @@ load_dotenv()
 
 app = Flask(__name__)
 
+@app.route('/', methods=['GET'])
+def home():
+    return "<h1>Welcome to the Hangry-8Ball API!</h1><p>Enter API documentation and endpoints here.</p>"
+
 @app.route('/api/v1/recommendations', methods=['GET'])
 def index():
     YELP_API_KEY = os.getenv('YELP_API_KEY')
