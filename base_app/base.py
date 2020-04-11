@@ -17,12 +17,14 @@ def index():
 
 
 @app.route('/api/v1/photos', methods=['GET'])
-def get_photos():
+def show():
     service = YelpService()
     params = format_params(request.args)
     restaurant_result = service.get_recommendation(params)
     return service.get_photos(restaurant_result)
 
+
+## Helper Methods ##
 
 def format_params(request_args):
     params = {'latitude': request_args['latitude'], 'longitude': request_args['longitude']}
@@ -40,8 +42,6 @@ def format_params(request_args):
         params.update({"term": f'{cuisine}'})
 
     return params
-
-
 
 
 if __name__ == '__main__':
