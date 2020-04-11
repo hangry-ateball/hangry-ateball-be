@@ -9,6 +9,7 @@ app = Flask(__name__)
 def home():
     return "<h1>Welcome to the Hangry-8Ball API!</h1><p>Enter API documentation and endpoints here.</p>"
 
+
 @app.route('/api/v1/recommendations', methods=['GET'])
 def index():
     service = YelpService()
@@ -39,9 +40,13 @@ def format_params(request_args):
         cuisine = request.args['categories']
         params.update({"term": f'{cuisine}'})
 
+    if 'travel' in request.args.keys():
+        if request.args['travel'] == 'walk':
+            params.update({"radius": 1600})
+        elif request.args['travel'] == 'drive':
+            params.update({"radius": 16000})
+
     return params
-
-
 
 
 if __name__ == '__main__':
