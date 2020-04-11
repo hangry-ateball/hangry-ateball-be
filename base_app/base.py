@@ -7,6 +7,7 @@ from base_app.restaurant import Restaurant
 from base_app.restaurant_schema import RestaurantSchema
 from base_app.photo import Photo
 from base_app.photo_schema import PhotoSchema
+from base_app.yelp_service import YelpService
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -18,25 +19,20 @@ def home():
 
 @app.route('/api/v1/recommendations', methods=['GET'])
 def index():
-    YELP_API_KEY = os.getenv('YELP_API_KEY')
-    headers = {'authorization': 'Bearer ' + YELP_API_KEY}
+    service = YelpService()
     lat = request.args['latitude']
     long = request.args['longitude']
-    url = 'https://api.yelp.com/v3/businesses/search'
-    if 'price' in request.args.keys():
-        price = request.args['price']
-        params = {'latitude': f'{lat}', 'longitude': f'{long}', 'price': f'{price}'}
-    elif 'categories' in request.args.keys():
-        cuisine = request.args['categories']
-        params = {'latitude': f'{lat}', 'longitude': f'{long}', 'term': f'{cuisine}'}
-    response = requests.get(url, params=params, headers=headers)
-    json_data = json.dumps(response.json())
-    restaurants = Restaurant.from_json(json_data)
-    restaurant = random.choice(restaurants)
-    schema = RestaurantSchema()
-    result = schema.dump(restaurant)
+    params = {'latitude': f'{lat}', 'longitude': f'{long}'}
 
-    return result
+    if 'price' in request.args.keys():
+         params.update({"price": request.args['price']})
+
+    if 'categories' in request.args.keys():
+        cuisine = request.args['categories']
+        params.update({"term": f'{cuisine}'})
+
+    return service.get_recommendation(params)
+
 
 @app.route('/api/v1/photos', methods=['GET'])
 def get_photos():
