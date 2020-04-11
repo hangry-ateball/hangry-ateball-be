@@ -7,7 +7,8 @@ def test_user_selects_multiple_preferences_returns_successful_response():
     long = '-104.990251'
     cuisine = 'indian'
     price = '2'
-    url = '/api/v1/recommendations?latitude={}&longitude={}&categories={}&price={}'.format(lat, long, cuisine, price)
+    travel = 'walk'
+    url = '/api/v1/recommendations?latitude={}&longitude={}&categories={}&price={}&travel={}'.format(lat, long, cuisine, price, travel)
 
     client = app.test_client()
     response = client.get(url)
@@ -136,7 +137,30 @@ def test_user_selects_price_preference_4_returns_successful_response():
     assert price == 4
     assert response_body['data']['attributes']['is_closed'] == False
 
+def test_user_selects_travel_preference_walk_returns_correct_distance():
+    lat = '39.7392358'
+    long = '-104.990251'
+    travel = 'walk'
 
+    url = '/api/v1/recommendations?latitude={}&longitude={}&travel={}'.format(lat, long, travel)
+    client = app.test_client()
+    response = client.get(url)
+    assert response.status_code == 200
 
+    response_body = response.json
+    assert 'distance' in response_body['data']['attributes']
+    assert response_body['data']['attributes']['distance'] <= 1700
 
+def test_user_selects_travel_preference_drive_returns_correct_distance():
+    lat = '39.7392358'
+    long = '-104.990251'
+    travel = 'drive'
 
+    url = '/api/v1/recommendations?latitude={}&longitude={}&travel={}'.format(lat, long, travel)
+    client = app.test_client()
+    response = client.get(url)
+    assert response.status_code == 200
+
+    response_body = response.json
+    assert 'distance' in response_body['data']['attributes']
+    assert response_body['data']['attributes']['distance'] <= 17000
