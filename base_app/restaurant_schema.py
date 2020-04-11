@@ -10,6 +10,7 @@ class RestaurantSchema(Schema):
     display_phone = fields.Str()
     rating = fields.Float()
     price = fields.Str()
+    distance = fields.Int()
 
     class Meta:
         type_ = 'restaurants'
