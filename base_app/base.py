@@ -20,9 +20,7 @@ def home():
 @app.route('/api/v1/recommendations', methods=['GET'])
 def index():
     service = YelpService()
-    lat = request.args['latitude']
-    long = request.args['longitude']
-    params = {'latitude': f'{lat}', 'longitude': f'{long}'}
+    params = {'latitude': request.args['latitude'], 'longitude': request.args['longitude']}
 
     if 'price' in request.args.keys():
          params.update({"price": request.args['price']})
