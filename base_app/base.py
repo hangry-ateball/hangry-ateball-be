@@ -66,5 +66,27 @@ def get_photos():
 
     return result
 
+@app.route('/api/v1/random', methods=['GET'])
+def get_random():
+    YELP_API_KEY = os.getenv('YELP_API_KEY')
+    headers = {'authorization': 'Bearer ' + YELP_API_KEY}
+    lat = request.args['latitude']
+    long = request.args['longitude']
+    business_type = 'food'
+    open = True
+    params = {'latitude': f'{lat}', 'longitude': f'{long}', 'term': f'{business_type}', 'open_now': f'{open}'}
+    url = 'https://api.yelp.com/v3/businesses/search'
+
+    response = requests.get(url, params=params, headers=headers)
+    json_data = json.dumps(response.json())
+    restaurants = Restaurant.from_json(json_data)
+    restaurant = random.choice(restaurants)
+    schema = RestaurantSchema()
+    result = schema.dump(restaurant)
+
+    return result
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
+
+
