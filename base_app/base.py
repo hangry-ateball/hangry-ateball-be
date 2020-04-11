@@ -20,15 +20,7 @@ def home():
 @app.route('/api/v1/recommendations', methods=['GET'])
 def index():
     service = YelpService()
-    params = {'latitude': request.args['latitude'], 'longitude': request.args['longitude']}
-
-    if 'price' in request.args.keys():
-         params.update({"price": request.args['price']})
-
-    if 'categories' in request.args.keys():
-        cuisine = request.args['categories']
-        params.update({"term": f'{cuisine}'})
-
+    params = format_params(request.args)
     return service.get_recommendation(params)
 
 
@@ -59,6 +51,28 @@ def get_photos():
     result = schema.dump(photos)
 
     return result
+
+def format_params(request_args):
+    params = {'latitude': request_args['latitude'], 'longitude': request_args['longitude']}
+
+    # If price is 1 or 4, then pass that price unaltered to the params
+    # If price is 2 or 3, then lower prices will be included to allow cheaper restaurants
+    if 'price' in request.args.keys():
+        if request.args['price'] == 2:
+            params.update({"price": "1,2"})
+        elif request.args['price'] == 3:
+            params.update({"price": "1,2,3"})
+        else:
+            params.update({"price": request.args['price']})
+
+    if 'categories' in request.args.keys():
+        cuisine = request.args['categories']
+        params.update({"term": f'{cuisine}'})
+
+    return params
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
