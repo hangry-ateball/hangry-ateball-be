@@ -4,8 +4,6 @@ import random
 import requests
 from base_app.restaurant import Restaurant
 from base_app.restaurant_schema import RestaurantSchema
-from base_app.photo import Photo
-from base_app.photo_schema import PhotoSchema
 from dotenv import load_dotenv
 load_dotenv()
 
