@@ -32,7 +32,7 @@ def test_google_api_returns_coordinates_with_city_and_state():
     params = {'key': GOOGLE_API_KEY, 'address': f'{address}' }
     service = GoogleService()
     response = service.get_coordinates(params)
-    assert response == {'latitude': 39.7392358, 'longitude': -104.990251}
+    assert response == { 'latitude': 39.7392358, 'longitude': -104.990251 }
 
 def test_google_api_returns_coordinates_with_only_city():
     GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
@@ -40,7 +40,7 @@ def test_google_api_returns_coordinates_with_only_city():
     params = {'key': GOOGLE_API_KEY, 'address': f'{address}' }
     service = GoogleService()
     response = service.get_coordinates(params)
-    assert response == {'latitude': 39.7392358, 'longitude': -104.990251}
+    assert response == { 'latitude': 39.7392358, 'longitude': -104.990251 }
 
 def test_google_api_returns_coordinates_with_only_state():
     GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
@@ -56,4 +56,4 @@ def test_google_api_returns_error_if_invalid_address_submitted():
     params = {'key': GOOGLE_API_KEY, 'input': f'{address}'}
     service = GoogleService()
     response = service.get_coordinates(params)
-    assert response == {'Invalid Address': 'Please enter a street address, city, and state.'}
+    assert response == { 'Invalid Address': 'Please enter a street address, city, and state.' }
