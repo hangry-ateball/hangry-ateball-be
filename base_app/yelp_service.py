@@ -8,7 +8,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class YelpService:
-
     def get_recommendation(self, params):
         restaurant_id = self.get_restaurant(params)
         url = 'https://api.yelp.com/v3/businesses/{}'.format(restaurant_id)

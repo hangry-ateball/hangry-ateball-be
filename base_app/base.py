@@ -21,7 +21,6 @@ def get_random():
     params = format_params(request.args)
     return service.get_recommendation(params )
 
-
 ## Helper Methods ##
 
 def format_params(request_args):
@@ -41,8 +40,5 @@ def format_params(request_args):
 
     return params
 
-
 if __name__ == '__main__':
     app.run()
-
-
