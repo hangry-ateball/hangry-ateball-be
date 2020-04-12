@@ -12,25 +12,26 @@ load_dotenv()
 class YelpService:
 
     def get_recommendation(self, params):
+        restaurant_id = self.get_restaurant(params)
+        url = 'https://api.yelp.com/v3/businesses/{}'.format(restaurant_id)
+        response = self.connection(url)
+        json_data = json.dumps(response.json())
+        recommendation = Restaurant.from_json(json_data)
+        schema = RestaurantSchema()
+        result = schema.dump(recommendation)
+        return result
+
+    def get_restaurant(self, params):
         url = 'https://api.yelp.com/v3/businesses/search'
         response = self.connection(url, params)
-        json_data = json.dumps(response.json())
-        restaurants = Restaurant.from_json(json_data)
-        restaurant = random.choice(restaurants)
-        schema = RestaurantSchema()
-        result = schema.dump(restaurant)
-        return result
-
-    def get_photos(self, restaurant_result):
-        restaurant_id = restaurant_result['data']['id']
-        restaurant_url = f'https://api.yelp.com/v3/businesses/{restaurant_id}'
-
-        response = self.connection(restaurant_url)
-        json_data = json.dumps(response.json())
-        photos = Photo.from_json(json_data)
-        schema = PhotoSchema()
-        result = schema.dump(photos)
-        return result
+        all = response.json()
+        for x in all['businesses']:
+            if x.get('price') != None:
+                ids = []
+                ids.append(x['id'])
+            else:
+                continue
+        return random.choice(ids)
 
     def connection(self, url, params = ''):
         YELP_API_KEY = os.getenv('YELP_API_KEY')
