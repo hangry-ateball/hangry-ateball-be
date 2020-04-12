@@ -1,0 +1,126 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.23.0
+    method: GET
+    uri: https://api.yelp.com/v3/businesses/search?latitude=39.7392358&longitude=-104.990251
+  response:
+    body:
+      string: !!binary |
+        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
+        Ak4AAA==
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 583035114a0fc7a5-DEN
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Sun, 12 Apr 2020 21:58:11 GMT
+      Expect-CT:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cfduid=de443ecd2f1eec872dea5cf323433c1cb1586728691; expires=Tue, 12-May-20
+        21:58:11 GMT; path=/; domain=.yelp.com; HttpOnly; SameSite=Lax; Secure
+      Transfer-Encoding:
+      - chunked
+      content-encoding:
+      - gzip
+      ratelimit-dailylimit:
+      - '5000'
+      ratelimit-remaining:
+      - '4440'
+      ratelimit-resettime:
+      - '2020-04-13T00:00:00+00:00'
+      vary:
+      - Accept-Encoding
+      x-b3-sampled:
+      - '0'
+      x-proxied:
+      - 10-65-172-27-useast1bprod
+      x-routing-service:
+      - 10-65-119-213-useast1aprod; site=public_api_v3
+      x-zipkin-id:
+      - 0b83583b44cfd71a
+    status:
+      code: 200
+      message: OK
+version: 1

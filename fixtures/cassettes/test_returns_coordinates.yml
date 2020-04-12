@@ -1,0 +1,66 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.23.0
+    method: GET
+    uri: https://maps.googleapis.com/maps/api/geocode/json?address=1331+17th+St+LL100%2C+Denver%2C+CO
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAC/62W32/aMBDH3/krLL+OVUlIIN7bRIXWrRoDhjZpqiKTuMSSY0eOQ1VV/O+7/BAN
+        DWnYgBeL3Nfnz53vLnkZIISwZlkuTIbRJ/SneAC/l3otzDSKQJEFoUpSJZk8Vrb09S6h5DaQNGGF
+        GN/f25aFhy1VFitt+mXmOWXVqbAl36SaJTyDLQ9Hyv3wn5js0cjuR+pQHREZzRhsyZMN05dCTUyM
+        VqXDM9gqcQ+eVrm5NFdTuHZNRT9St7CJJBnfxhulY6UiPEQ4VYIbHsK+yzBvmdzBFfRSduqakEIB
+        EDfP1wdEU5XLwvF5nN3yJi6NEi451CI1fMcCqhkNBNsxETjXjGCqhNI0UmeUwvy/ie1rEq8lNyyC
+        PqEGju7FXq96sMPiNvRVy8K3HMvpR+uSNelSlRkqYFhH7Z5//ffQcIIflU6ogRwF9ag/DD5UTxhU
+        DuYhqupxiKZzVLIM0Xr1uQmEt0wlrMgOuDiOuuwnw5Vsm0orNYVhRG4mnuVb1rgdppDbQvLRttwb
+        QsYecSfvJf1wYFDkp4xpOZ/Pfs5/vEkh3nH2lEKmT5NJsMSMZqfNb9kd2yUeJIfA2gqhHYXnuN7E
+        JhPL996K9yfqAUZ5/MTOQ3GJ69nj0vdZKBPijsYleRulq46ajDil2nCoPSimMC4cG52zI4GgIQt4
+        VI2H+O7rbGUI8Zfu5i5cWmy0+PX99xdy6+PjTXlWl3OrpMpPklxGBzteOM7og09eK7UeV1Cp74wB
+        vBVqc+iaotO82aJ2hTuibTYd3AjdCJ7FCbz+qsHApQnUYwAL08WFwcMshPddY1SUeaw6Eb4hqMmr
+        xpt/w4P94C8wLvprmwkAAA==
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Alt-Svc:
+      - quic=":443"; ma=2592000; v="46,43",h3-Q050=":443"; ma=2592000,h3-Q049=":443";
+        ma=2592000,h3-Q048=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443";
+        ma=2592000,h3-T050=":443"; ma=2592000
+      Cache-Control:
+      - no-cache, must-revalidate
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Sun, 12 Apr 2020 22:26:54 GMT
+      Expires:
+      - Fri, 01 Jan 1990 00:00:00 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - mafe
+      Server-Timing:
+      - gfet4t7; dur=15
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Language
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Goog-Maps-Metro-Area:
+      - Denver, CO
+      X-XSS-Protection:
+      - '0'
+    status:
+      code: 200
+      message: OK
+version: 1
