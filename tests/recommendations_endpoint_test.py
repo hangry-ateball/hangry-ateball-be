@@ -26,6 +26,7 @@ def test_user_selects_multiple_preferences_returns_successful_response():
     assert 'rating' in response_body['data']['attributes']
     assert 'price' in response_body['data']['attributes']
     assert price <= 2
+    assert response_body['data']['attributes']['is_closed'] == False
 
 def test_user_selects_food_preference_returns_successful_response():
     lat = '39.7392358'
@@ -48,6 +49,7 @@ def test_user_selects_food_preference_returns_successful_response():
     assert 'display_phone' in response_body['data']['attributes']
     assert 'rating' in response_body['data']['attributes']
     assert 'price' in response_body['data']['attributes']
+    assert response_body['data']['attributes']['is_closed'] == False
 
 def test_user_selects_price_preference_returns_successful_response():
     lat = '39.7392358'
@@ -68,6 +70,7 @@ def test_user_selects_price_preference_returns_successful_response():
     assert 'display_phone' in response_body['data']['attributes']
     assert 'rating' in response_body['data']['attributes']
     assert 'price' in response_body['data']['attributes']
+    assert response_body['data']['attributes']['is_closed'] == False
 
 def test_user_selects_price_preference_1_returns_successful_response():
     lat = '39.7392358'
@@ -83,6 +86,7 @@ def test_user_selects_price_preference_1_returns_successful_response():
     price = len(response_body['data']['attributes']['price'])
     assert 'price' in response_body['data']['attributes']
     assert price == 1
+    assert response_body['data']['attributes']['is_closed'] == False
 
 def test_user_selects_price_preference_2_returns_successful_response():
     lat = '39.7392358'
@@ -98,6 +102,7 @@ def test_user_selects_price_preference_2_returns_successful_response():
     price = len(response_body['data']['attributes']['price'])
     assert 'price' in response_body['data']['attributes']
     assert price <= 2
+    assert response_body['data']['attributes']['is_closed'] == False
 
 def test_user_selects_price_preference_3_returns_successful_response():
     lat = '39.7392358'
@@ -113,6 +118,7 @@ def test_user_selects_price_preference_3_returns_successful_response():
     price = len(response_body['data']['attributes']['price'])
     assert 'price' in response_body['data']['attributes']
     assert price <= 3
+    assert response_body['data']['attributes']['is_closed'] == False
 
 def test_user_selects_price_preference_4_returns_successful_response():
     lat = '39.7392358'
@@ -128,6 +134,7 @@ def test_user_selects_price_preference_4_returns_successful_response():
     price = len(response_body['data']['attributes']['price'])
     assert 'price' in response_body['data']['attributes']
     assert price == 4
+    assert response_body['data']['attributes']['is_closed'] == False
 
 
 
