@@ -27,7 +27,7 @@ def show():
 ## Helper Methods ##
 
 def format_params(request_args):
-    params = {'latitude': request_args['latitude'], 'longitude': request_args['longitude']}
+    params = {'latitude': request_args['latitude'], 'longitude': request_args['longitude'], 'open_now': True}
 
     if 'price' in request.args.keys():
         if request.args['price'] == 2:
