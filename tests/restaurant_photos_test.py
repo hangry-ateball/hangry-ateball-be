@@ -1,5 +1,3 @@
-import os
-import requests
 from base_app.base import app
 from dotenv import load_dotenv
 load_dotenv()
