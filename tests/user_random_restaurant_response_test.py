@@ -24,4 +24,5 @@ def test_user_selects_random_restaurant_option_returns_successful_response():
     assert 'display_phone' in response_body['data']['attributes']
     assert 'rating' in response_body['data']['attributes']
     assert 'price' in response_body['data']['attributes']
+    assert 'photos' in response_body['data']['attributes']
 

@@ -15,19 +15,17 @@ def index():
     params = format_params(request.args)
     return service.get_recommendation(params)
 
-
-@app.route('/api/v1/photos', methods=['GET'])
-def show():
+@app.route('/api/v1/random', methods=['GET'])
+def get_random():
     service = YelpService()
     params = format_params(request.args)
-    restaurant_result = service.get_recommendation(params)
-    return service.get_photos(restaurant_result)
+    return service.get_recommendation(params )
 
 
 ## Helper Methods ##
 
 def format_params(request_args):
-    params = {'latitude': request_args['latitude'], 'longitude': request_args['longitude'], 'open_now': True}
+    params = {'latitude': request_args['latitude'], 'longitude': request_args['longitude'], 'open_now': True, 'term': 'food'}
 
     if 'price' in request.args.keys():
         if request.args['price'] == 2:
@@ -43,26 +41,6 @@ def format_params(request_args):
 
     return params
 
-
-@app.route('/api/v1/random', methods=['GET'])
-def get_random():
-    YELP_API_KEY = os.getenv('YELP_API_KEY')
-    headers = {'authorization': 'Bearer ' + YELP_API_KEY}
-    lat = request.args['latitude']
-    long = request.args['longitude']
-    business_type = 'food'
-    open = True
-    params = {'latitude': f'{lat}', 'longitude': f'{long}', 'term': f'{business_type}', 'open_now': f'{open}'}
-    url = 'https://api.yelp.com/v3/businesses/search'
-
-    response = requests.get(url, params=params, headers=headers)
-    json_data = json.dumps(response.json())
-    restaurants = Restaurant.from_json(json_data)
-    restaurant = random.choice(restaurants)
-    schema = RestaurantSchema()
-    result = schema.dump(restaurant)
-
-    return result
 
 if __name__ == '__main__':
     app.run()
