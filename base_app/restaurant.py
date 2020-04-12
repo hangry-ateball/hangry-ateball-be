@@ -1,7 +1,7 @@
 import json
 
 class Restaurant:
-    def __init__(self, id, name, categories, location, phone, display_phone, rating, price, is_closed):
+    def __init__(self, id, name, categories, location, phone, display_phone, rating, price, is_closed, photos):
         self.id = id
         self.cuisine = categories
         self.name = name
@@ -11,29 +11,23 @@ class Restaurant:
         self.rating = rating
         self.price = price
         self.is_closed = is_closed
+        self.photos = photos
 
     @classmethod
     def from_json(cls, json_string):
-        dictionary = json.loads(json_string)
-        restaurant_list = []
-        for r in dictionary['businesses']:
-            categories = []
-            for values in r['categories']:
-                categories.append(values['title'])
-            if r.get('price') != None:
-                restaurant_list.append(
-                    Restaurant(
-                        r['id'],
-                        r['name'],
-                        categories,
-                        r['location'],
-                        r['phone'],
-                        r['display_phone'],
-                        r['rating'],
-                        r['price'],
-                        r['is_closed']
-                    )
-                )
-            else:
-                continue
-            return restaurant_list
+        info = json.loads(json_string)
+        categories = []
+        for i in info['categories']:
+            categories.append(i['title'])
+        return cls(
+            info['id'],
+            info['name'],
+            categories,
+            info['location'],
+            info['phone'],
+            info['display_phone'],
+            info['rating'],
+            info['price'],
+            info['is_closed'],
+            info['photos'])
+

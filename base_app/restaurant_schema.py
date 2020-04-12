@@ -11,6 +11,7 @@ class RestaurantSchema(Schema):
     rating = fields.Float()
     price = fields.Str()
     is_closed = fields.Bool()
+    photos = fields.List(fields.Str)
 
     class Meta:
         type_ = 'restaurants'
