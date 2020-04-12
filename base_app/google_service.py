@@ -5,11 +5,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class GoogleService:
-    def connection(self, params):
-        GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
-        url = 'https://maps.googleapis.com/maps/api/geocode/json'
-        return requests.get(url, params)
-
     def get_coordinates(self, params):
         response = self.connection(params)
         json = response.json()
@@ -22,4 +17,7 @@ class GoogleService:
             content = {'Invalid Address': 'Please enter a street address, city, and state.'}
             return content
 
-
+    def connection(self, params):
+        GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
+        url = 'https://maps.googleapis.com/maps/api/geocode/json'
+        return requests.get(url, params)
