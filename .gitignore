@@ -5,6 +5,7 @@ __pycache__
 .idea
 .pytest_cache
 .venv
+venv
 get-pip.py
 htmlcov/
 instance
