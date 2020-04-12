@@ -38,14 +38,5 @@ class YelpTest(unittest.TestCase):
         assert 'display_phone' in response['data']['attributes']
         assert 'rating' in response['data']['attributes']
         assert 'price' in response['data']['attributes']
-
-    def test_can_get_photos(self):
-        params = {'latitude': '39.7392358', 'longitude': '-104.990251'}
-
-        service = Yelp(self.test_api_key)
-        restaurant = service.get_recommendation(params)
-        response = service.get_photos(restaurant)
-
-        assert 'id' in response['data']
-        assert 'type' in response['data']
         assert 'photos' in response['data']['attributes']
+        assert response['data']['attributes']['is_closed'] == False
