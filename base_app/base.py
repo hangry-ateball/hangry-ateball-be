@@ -26,7 +26,7 @@ def get_random():
 
 def has_address(request_args):
     params = { 'open_now': True, 'term': 'food'}
-    google= GoogleService()
+    google = GoogleService()
     location = {}
     new_address = request_args['address'].replace(",", "+")
     location.update({'address': f'{new_address}'})
