@@ -29,7 +29,7 @@ def has_address(request_args):
     google= GoogleService()
     location = {}
     new_address = request_args['address'].replace(",", "+")
-    address = location.update({'address': f'{new_address}'})
+    location.update({'address': f'{new_address}'})
     coordinates  = google.get_coordinates(location)
     params.update(coordinates)
     return params
