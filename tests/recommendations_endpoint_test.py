@@ -136,6 +136,98 @@ def test_user_selects_price_preference_4_returns_successful_response():
     assert price == 4
     assert response_body['data']['attributes']['is_closed'] == False
 
+def test_user_selects_walking_distance_preference_with_successful_response():
+    lat = '39.7392358'
+    long = '-104.990251'
+    travel = 'walk'
+
+    url = '/api/v1/recommendations?latitude={}&longitude={}&travel={}'.format(lat, long, travel)
+    client = app.test_client()
+    response = client.get(url)
+    assert response.status_code == 200
+    response_body = response.json
+    assert 'id' in response_body['data']
+    assert 'cuisine' in response_body['data']['attributes']
+    assert 'name' in response_body['data']['attributes']
+    assert 'location' in response_body['data']['attributes']
+    assert 'phone' in response_body['data']['attributes']
+    assert 'display_phone' in response_body['data']['attributes']
+    assert 'rating' in response_body['data']['attributes']
+    assert 'price' in response_body['data']['attributes']
+    assert response_body['data']['attributes']['is_closed'] == False
+
+def test_user_selects_driving_distance_preference_with_successful_response():
+    lat = '39.7392358'
+    long = '-104.990251'
+    travel = 'drive'
+
+    url = '/api/v1/recommendations?latitude={}&longitude={}&travel={}'.format(lat, long, travel)
+    client = app.test_client()
+    response = client.get(url)
+    assert response.status_code == 200
+    response_body = response.json
+    assert 'id' in response_body['data']
+    assert 'cuisine' in response_body['data']['attributes']
+    assert 'name' in response_body['data']['attributes']
+    assert 'location' in response_body['data']['attributes']
+    assert 'phone' in response_body['data']['attributes']
+    assert 'display_phone' in response_body['data']['attributes']
+    assert 'rating' in response_body['data']['attributes']
+    assert 'price' in response_body['data']['attributes']
+    assert response_body['data']['attributes']['is_closed'] == False
+
+def test_user_enters_only_full_address_and_gets_successful_response():
+    address = '1331 17th St, Denver, CO'
+    url = '/api/v1/recommendations?address={}'.format(address)
+    client = app.test_client()
+    response = client.get(url)
+    assert response.status_code == 200
+    response_body = response.json
+    assert 'id' in response_body['data']
+    assert 'cuisine' in response_body['data']['attributes']
+    assert 'name' in response_body['data']['attributes']
+    assert 'location' in response_body['data']['attributes']
+    assert 'phone' in response_body['data']['attributes']
+    assert 'display_phone' in response_body['data']['attributes']
+    assert 'rating' in response_body['data']['attributes']
+    assert 'price' in response_body['data']['attributes']
+    assert response_body['data']['attributes']['is_closed'] == False
+
+def test_user_enters_city_and_gets_successful_response():
+    address = 'Denver'
+    url = '/api/v1/recommendations?address={}'.format(address)
+    client = app.test_client()
+    response = client.get(url)
+    assert response.status_code == 200
+    response_body = response.json
+    assert 'id' in response_body['data']
+    assert 'cuisine' in response_body['data']['attributes']
+    assert 'name' in response_body['data']['attributes']
+    assert 'location' in response_body['data']['attributes']
+    assert 'phone' in response_body['data']['attributes']
+    assert 'display_phone' in response_body['data']['attributes']
+    assert 'rating' in response_body['data']['attributes']
+    assert 'price' in response_body['data']['attributes']
+    assert response_body['data']['attributes']['is_closed'] == False
+
+def test_user_enters_state_and_gets_successful_response():
+    address = 'Colorado'
+    url = '/api/v1/recommendations?address={}'.format(address)
+    client = app.test_client()
+    response = client.get(url)
+    assert response.status_code == 200
+    response_body = response.json
+    assert 'id' in response_body['data']
+    assert 'cuisine' in response_body['data']['attributes']
+    assert 'name' in response_body['data']['attributes']
+    assert 'location' in response_body['data']['attributes']
+    assert 'phone' in response_body['data']['attributes']
+    assert 'display_phone' in response_body['data']['attributes']
+    assert 'rating' in response_body['data']['attributes']
+    assert 'price' in response_body['data']['attributes']
+    assert response_body['data']['attributes']['is_closed'] == False
+
+
 
 
 
