@@ -24,13 +24,13 @@ class YelpService:
         url = 'https://api.yelp.com/v3/businesses/search'
         response = self.connection(url, params)
         all = response.json()
-        ids = {}
+        ids = []
         for x in all['businesses']:
             if x.get('price') != None:
-                ids.update({x['id']: x['distance']})
+                ids.append(x['id'])
             else:
                 continue
-        restaurant = random.choice(list(ids.items()))
+        restaurant = random.choice(id)
         return restaurant
 
     def connection(self, url, params = ''):
