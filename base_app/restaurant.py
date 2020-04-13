@@ -1,7 +1,7 @@
 import json
 
 class Restaurant:
-    def __init__(self, id, name, categories, location, phone, display_phone, rating, price, is_closed, photos):
+    def __init__(self, id, name, categories, location, phone, display_phone, rating, price, is_closed, photos, distance):
         self.id = id
         self.cuisine = categories
         self.name = name
@@ -12,6 +12,7 @@ class Restaurant:
         self.price = price
         self.is_closed = is_closed
         self.photos = photos
+        self.distance = distance
 
     @classmethod
     def from_json(cls, json_string):
@@ -29,5 +30,6 @@ class Restaurant:
             info['rating'],
             info['price'],
             info['is_closed'],
-            info['photos'])
+            info['photos'],
+            info['distance'])
 
