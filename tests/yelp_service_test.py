@@ -40,7 +40,7 @@ def test_can_get_restaurant_in_walking_distance():
     assert response[1] < 1200
 
 def test_can_get_restaurant_in_walking_distance():
-    params = {'latitude': '39.7392358', 'longitude': '-104.990251', 'radius': '1000'}
+    params = {'latitude': '39.7392358', 'longitude': '-104.990251', 'radius': '10git c00'}
     service = YelpService()
     response = service.get_restaurant(params)
     assert response[1] <= 1200
