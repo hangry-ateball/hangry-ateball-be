@@ -10,8 +10,7 @@ load_dotenv()
 class YelpService:
 
     def get_recommendation(self, params):
-        info = self.get_restaurant(params)
-        restaurant_id = info[0]
+        restaurant_id = self.get_restaurant(params)
         url = 'https://api.yelp.com/v3/businesses/{}'.format(restaurant_id)
         response = self.connection(url)
         json_data = json.dumps(response.json())
