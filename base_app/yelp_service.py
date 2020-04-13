@@ -30,7 +30,7 @@ class YelpService:
                 ids.append(x['id'])
             else:
                 continue
-        restaurant = random.choice(id)
+        restaurant = random.choice(ids)
         return restaurant
 
     def connection(self, url, params = ''):
