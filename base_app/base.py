@@ -39,6 +39,11 @@ def format_params(request_args):
         cuisine = request.args['categories']
         params.update({"term": f'{cuisine}'})
 
+    if 'travel' in request.args.keys() and request.args['travel'] == 'walk':
+        params.update({"radius": 1600})
+    else:
+        params.update({"radius": 16000})
+
     return params
 
 
