@@ -32,3 +32,7 @@ def test_can_get_recommendation():
     assert 'price' in response['data']['attributes']
     assert 'photos' in response['data']['attributes']
     assert response['data']['attributes']['is_closed'] == False
+
+
+
+

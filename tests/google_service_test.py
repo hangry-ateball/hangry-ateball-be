@@ -18,6 +18,14 @@ def test_google_api_returns_successful_response():
     status = response.status_code
     assert response.status_code == 200
 
+def test_google_api_returns_coordinates_with_street_address_and_zip_code():
+    GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
+    address = '1331 17th St LL100, Denver, CO, 80202'
+    params = {'key': GOOGLE_API_KEY, 'address': f'{address}' }
+    service = GoogleService()
+    response = service.get_coordinates(params)
+    assert response == { 'latitude': 39.7508006, 'longitude': -104.9965947 }
+
 def test_google_api_returns_coordinates_with_street_address():
     GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
     address = '1331 17th St LL100, Denver, CO'
