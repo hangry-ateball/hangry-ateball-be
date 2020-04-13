@@ -1,5 +1,6 @@
 from flask import Flask, request
 from base_app.yelp_service import YelpService
+from base_app.google_service import GoogleService
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -21,11 +22,23 @@ def get_random():
     params = format_params(request.args)
     return service.get_recommendation(params )
 
-
 ## Helper Methods ##
 
+def has_address(request_args):
+    params = { 'open_now': True, 'term': 'food'}
+    google= GoogleService()
+    location = {}
+    new_address = request_args['address'].replace(",", "+")
+    address = location.update({'address': f'{new_address}'})
+    coordinates  = google.get_coordinates(location)
+    params.update(coordinates)
+    return params
+
 def format_params(request_args):
-    params = {'latitude': request_args['latitude'], 'longitude': request_args['longitude'], 'open_now': True, 'term': 'food'}
+    if 'address' in request.args.keys():
+        params = has_address(request_args)
+    else:
+        params = {'latitude': request_args['latitude'], 'longitude': request_args['longitude'], 'open_now': True, 'term': 'food'}
 
     if 'price' in request.args.keys():
         if request.args['price'] == 2:

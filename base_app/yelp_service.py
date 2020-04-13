@@ -10,7 +10,8 @@ load_dotenv()
 class YelpService:
 
     def get_recommendation(self, params):
-        restaurant_id = self.get_restaurant(params)
+        info = self.get_restaurant(params)
+        restaurant_id = info[0]
         url = 'https://api.yelp.com/v3/businesses/{}'.format(restaurant_id)
         response = self.connection(url)
         json_data = json.dumps(response.json())
@@ -23,13 +24,13 @@ class YelpService:
         url = 'https://api.yelp.com/v3/businesses/search'
         response = self.connection(url, params)
         all = response.json()
-        ids = []
+        ids = {}
         for x in all['businesses']:
             if x.get('price') != None:
-                ids.append(x['id'])
+                ids.update({x['id']: x['distance']})
             else:
                 continue
-        restaurant = random.choice(ids)
+        restaurant = random.choice(list(ids.items()))
         return restaurant
 
     def connection(self, url, params = ''):

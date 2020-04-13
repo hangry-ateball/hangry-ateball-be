@@ -33,23 +33,6 @@ def test_can_get_recommendation():
     assert 'photos' in response['data']['attributes']
     assert response['data']['attributes']['is_closed'] == False
 
-def test_can_get_restaurant_in_walking_distance():
-    params = {'latitude': '39.7392358', 'longitude': '-104.990251', 'radius': '1200'}
-    service = YelpService()
-    response = service.get_restaurant(params)
-    assert response[1] < 1200
-
-def test_can_get_restaurant_in_walking_distance():
-    params = {'latitude': '39.7392358', 'longitude': '-104.990251', 'radius': '10git c00'}
-    service = YelpService()
-    response = service.get_restaurant(params)
-    assert response[1] <= 1200
-
-def test_can_get_restaurant_in_driving_distance():
-    params = {'latitude': '39.7392358', 'longitude': '-104.990251', 'radius': '16000'}
-    service = YelpService()
-    response = service.get_restaurant(params)
-    assert response[1] <= 18000
 
 
 

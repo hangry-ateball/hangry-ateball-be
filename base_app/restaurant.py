@@ -30,4 +30,3 @@ class Restaurant:
             info['price'],
             info['is_closed'],
             info['photos'])
-
