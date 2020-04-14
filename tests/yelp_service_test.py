@@ -1,4 +1,4 @@
-from base_app.yelp_service import YelpService
+from base_app.services.yelp_service import YelpService
 from dotenv import load_dotenv
 load_dotenv()
 
