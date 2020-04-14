@@ -9,7 +9,7 @@
       "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
     }
   },
-  "host" : "hangry-ateball-staging.herokuapp.com",
+  "host" : "hangry-ateball-api.herokuapp.com",
   "basePath" : "/api/v1",
   "schemes" : [ "http" ],
   "paths" : {
@@ -56,13 +56,13 @@
           "name" : "latitude",
           "in" : "query",
           "description" : "If an address is not provided, latitude and longitude are required. Pass an integer representing the latitude of the location you would like to search from.",
-          "required" : true,
+          "required" : false,
           "type" : "number"
         }, {
           "name" : "longitude",
           "in" : "query",
           "description" : "If an address is not provided, latitude and longitude are required. Pass an integer representing the longitude of the location you would like to search from.",
-          "required" : true,
+          "required" : false,
           "type" : "number"
         }, {
           "name" : "address",
