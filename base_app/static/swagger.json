@@ -33,7 +33,7 @@
         }, {
           "name" : "address",
           "in" : "query",
-          "description" : "If latitude and longitude are not provided, an address is required. A full address would include a street, city, state, and zip code ( 12345 Rodeo Dr, Los Angeles, CA 90210). Zip code is not required. An address can also include only a city and state (Los Angeles, CA) or state (CA).",
+          "description" : "If latitude and longitude are not provided, an address is required. A full address would include a street, city, state, and zip code (12345 Rodeo Dr, Los Angeles, CA 90210). Zip code is not required. An address can also include only a city and state (Los Angeles, CA) or state (CA).",
           "required" : false,
           "type" : "string"
         } ],
@@ -49,7 +49,7 @@
     },
     "/recommendations" : {
       "get" : {
-        "summary" : "search for a restaurant recommendation based off preferences",
+        "summary" : "search for a restaurant recommendation based on preferences",
         "description" : "By passing in the appropriate options, you can search for\na restaurant recommendation.\n",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -67,7 +67,7 @@
         }, {
           "name" : "address",
           "in" : "query",
-          "description" : "If latitude and longitude are not provided, an address is required. A full address would include a street, city, state, and zip code ( 12345 Rodeo Dr, Los Angeles, CA 90210). Zip code is not required. An address can also include only a city and state (Los Angeles, CA) or state (CA).",
+          "description" : "If latitude and longitude are not provided, an address is required. A full address would include a street, city, state, and zip code (12345 Rodeo Dr, Los Angeles, CA 90210). Zip code is not required. An address can also include only a city and state (Los Angeles, CA) or state (CA).",
           "required" : false,
           "type" : "string"
         }, {
@@ -87,7 +87,7 @@
         }, {
           "name" : "categories",
           "in" : "query",
-          "description" : "Pass a selection of cuisine types to filter restaurants with. The category filter can be a list of comma delimited categories.",
+          "description" : "Pass a selection of cuisine types to filter restaurants with. The category filter can be a list of comma-delimited categories.",
           "required" : false,
           "type" : "string"
         } ],
