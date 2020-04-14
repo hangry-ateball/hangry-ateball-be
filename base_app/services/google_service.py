@@ -23,4 +23,10 @@ class GoogleService:
             content = {'Invalid Address': 'Please enter a street address, city, and state.'}
             return content
 
+    def get_place_id(self, params):
+        url = 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json'
+        params.update({'inputtype': 'textquery')
+        response = self.connection(url, params)
+        if response.status_code == 200 and 'candidates' in response.json.keys():
+            return response.json['candidates'][0]['place_id']
 
