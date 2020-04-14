@@ -11,7 +11,8 @@ class GoogleService:
         return requests.get(url, params)
 
     def get_coordinates(self, params):
-        response = self.connection(params)
+        url = 'https://maps.googleapis.com/maps/api/geocode/json'
+        response = self.connection(url, params)
         json = response.json()
         if response.status_code == 200 and 'results' in json.keys():
             coordinates = {}
