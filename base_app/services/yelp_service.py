@@ -2,8 +2,8 @@ import json
 import os
 import random
 import requests
-from base_app.restaurant import Restaurant
-from base_app.restaurant_schema import RestaurantSchema
+from base_app.models.restaurant import Restaurant
+from base_app.models.restaurant_schema import RestaurantSchema
 from dotenv import load_dotenv
 load_dotenv()
 

@@ -1,7 +1,5 @@
 import os
-import requests
-from base_app.base import app
-from base_app.google_service import GoogleService
+from base_app.services.google_service import GoogleService
 from dotenv import load_dotenv
 load_dotenv()
 
