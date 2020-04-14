@@ -1,14 +1,28 @@
+from flask_cors import CORS
 from flask import Flask, request
-from base_app.yelp_service import YelpService
-from base_app.google_service import GoogleService
+from base_app.services.yelp_service import YelpService
+from base_app.services.google_service import GoogleService
+from flask_swagger_ui import get_swaggerui_blueprint
 from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
+cors = CORS(app)
+
+SWAGGER_URL = '/api/docs'
+API_URL = '/static/swagger.json'
+swaggerui_blueprint = get_swaggerui_blueprint(
+    SWAGGER_URL,
+    API_URL,
+    config={
+        'app_name': 'Hangry Ateball API'
+    }
+)
+app.register_blueprint(swaggerui_blueprint, url_prefix = SWAGGER_URL)
 
 @app.route('/', methods=['GET'])
 def home():
-    return "<h1>Welcome to the Hangry-8Ball API!</h1><p>Enter API documentation and endpoints here.</p>"
+    return "<h1>Welcome to the Hangry-8Ball API!</h1><p>You can find the API documentation at <a>https://hangry-ateball-api.herokuapp.com/api/docs</a>.</p>"
 
 @app.route('/api/v1/recommendations', methods=['GET'])
 def index():
