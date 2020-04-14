@@ -1,9 +1,8 @@
-import os
-from twilio.rest import Client
 from flask_cors import CORS
 from flask import Flask, request, render_template
-from base_app.services.yelp_service import YelpService
 from base_app.services.google_service import GoogleService
+from base_app.services.twilio_service import TwilioService
+from base_app.services.yelp_service import YelpService
 from flask_swagger_ui import get_swaggerui_blueprint
 from dotenv import load_dotenv
 load_dotenv()
@@ -37,22 +36,20 @@ def index():
 def get_random():
     service = YelpService()
     params = format_params(request.args)
-    return service.get_recommendation(params )
+    return service.get_recommendation(params)
 
 @app.route('/api/v1/notify', methods=['GET'])
 def notify():
     from_ = '+' + request.args['from']
     to = '+' + request.args['to']
     body = request.args['body']
-    account_sid = os.getenv('TWILIO_ACCOUNT_SID')
-    auth_token = os.getenv('TWILIO_AUTH_TOKEN')
-    client = Client(account_sid, auth_token)
+    client = TwilioService.get_client()
     message = client.messages.create(
         body='Hangry Ateball invites you to join your friend at {}'.format(body),
         from_=from_,
         to=to
     )
-    return ''
+    return message.status
 
 ## Helper Methods ##
 
