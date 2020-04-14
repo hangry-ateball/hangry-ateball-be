@@ -5,12 +5,10 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class GoogleService:
-    def connection(self, params):
+    def connection(self, url, params):
         GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
-        new_params = {'key': GOOGLE_API_KEY}
-        new_params.update(params)
-        url = 'https://maps.googleapis.com/maps/api/geocode/json'
-        return requests.get(url, new_params)
+        params.update({'key': GOOGLE_API_KEY})
+        return requests.get(url, params)
 
     def get_coordinates(self, params):
         response = self.connection(params)
