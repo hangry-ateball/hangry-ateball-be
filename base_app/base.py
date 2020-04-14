@@ -1,5 +1,5 @@
 from flask_cors import CORS
-from flask import Flask, request
+from flask import Flask, request, render_template
 from base_app.services.yelp_service import YelpService
 from base_app.services.google_service import GoogleService
 from flask_swagger_ui import get_swaggerui_blueprint
@@ -22,7 +22,7 @@ app.register_blueprint(swaggerui_blueprint, url_prefix = SWAGGER_URL)
 
 @app.route('/', methods=['GET'])
 def home():
-    return "<h1>Welcome to the Hangry-8Ball API!</h1><p>You can find the API documentation at <a>https://hangry-ateball-api.herokuapp.com/api/docs</a>.</p>"
+    return render_template('index.html', title = 'Hangry Ateball')
 
 @app.route('/api/v1/recommendations', methods=['GET'])
 def index():
