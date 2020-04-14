@@ -21,12 +21,14 @@
         "parameters" : [ {
           "name" : "latitude",
           "in" : "query",
-          "description" : "Pass an integer representing the latitude of the location you would like to search from.",
+          "description" : "If an address is not provided, latitude and longitude are required. Pass an integer representing the latitude of the location you would like to search from.",
+          "required" : false,
           "type" : "number"
         }, {
           "name" : "longitude",
           "in" : "query",
-          "description" : "Pass an integer representing the longitude of the location you would like to search from.",
+          "description" : "If an address is not provided, latitude and longitude are required. Pass an integer representing the longitude of the location you would like to search from.",
+          "required" : false,
           "type" : "number"
         }, {
           "name" : "address",
@@ -53,19 +55,33 @@
         "parameters" : [ {
           "name" : "latitude",
           "in" : "query",
-          "description" : "Pass an integer representing the latitude of the location you would like to search from.",
+          "description" : "If an address is not provided, latitude and longitude are required. Pass an integer representing the latitude of the location you would like to search from.",
           "required" : true,
           "type" : "number"
         }, {
           "name" : "longitude",
           "in" : "query",
-          "description" : "Pass an integer representing the longitude of the location you would like to search from.",
+          "description" : "If an address is not provided, latitude and longitude are required. Pass an integer representing the longitude of the location you would like to search from.",
           "required" : true,
           "type" : "number"
         }, {
           "name" : "address",
           "in" : "query",
           "description" : "If latitude and longitude are not provided, an address is required. A full address would include a street, city, state, and zip code ( 12345 Rodeo Dr, Los Angeles, CA 90210). Zip code is not required. An address can also include only a city and state (Los Angeles, CA) or state (CA).",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "price",
+          "in" : "query",
+          "description" : "Pass an integer (1 - 4) to select a maximum price point ($ - $$$$). For example, when 3 is entered, the search will also include restaurants with a price point of 2 and 1.",
+          "required" : false,
+          "type" : "integer",
+          "minimum" : 1,
+          "maximum" : 4
+        }, {
+          "name" : "travel",
+          "in" : "query",
+          "description" : "Enter either 'walk' or 'drive'. If walk is entered, a radius of 1600 meters will be searched. If drive is entered, a radius of 16,000 meters will be searched.",
           "required" : false,
           "type" : "string"
         }, {
