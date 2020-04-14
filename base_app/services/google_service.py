@@ -29,4 +29,6 @@ class GoogleService:
         response = self.connection(url, params)
         if response.status_code == 200 and 'candidates' in response.json.keys():
             return response.json['candidates'][0]['place_id']
+        else:
+            return {'Invalid Request': "Params required are 'locationbias': 'point:<lat>,<long>' and 'input': '<restaurant_name>'"}
 
