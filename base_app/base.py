@@ -1,3 +1,5 @@
+import os
+from twilio.rest import Client
 from flask_cors import CORS
 from flask import Flask, request, render_template
 from base_app.services.yelp_service import YelpService
@@ -21,6 +23,7 @@ swaggerui_blueprint = get_swaggerui_blueprint(
 app.register_blueprint(swaggerui_blueprint, url_prefix = SWAGGER_URL)
 
 @app.route('/', methods=['GET'])
+@app.route('/api/v1', methods=['GET'])
 def home():
     return render_template('index.html', title = 'Hangry Ateball')
 
@@ -36,10 +39,25 @@ def get_random():
     params = format_params(request.args)
     return service.get_recommendation(params )
 
+@app.route('/api/v1/notify', methods=['GET'])
+def notify():
+    from_ = '+' + request.args['from']
+    to = '+' + request.args['to']
+    body = request.args['body']
+    account_sid = os.getenv('TWILIO_ACCOUNT_SID')
+    auth_token = os.getenv('TWILIO_AUTH_TOKEN')
+    client = Client(account_sid, auth_token)
+    message = client.messages.create(
+        body='Hangry Ateball invites you to join your friend at {}'.format(body),
+        from_=from_,
+        to=to
+    )
+    return ''
+
 ## Helper Methods ##
 
 def has_address(request_args):
-    params = { 'open_now': True, 'term': 'food'}
+    params = {'open_now': True, 'term': 'food'}
     google = GoogleService()
     location = {}
     new_address = request_args['address'].replace(",", "+")
@@ -56,25 +74,22 @@ def format_params(request_args):
 
     if 'price' in request.args.keys():
         if request.args['price'] == 2:
-            params.update({"price": "1,2"})
+            params.update({'price': '1,2'})
         elif request.args['price'] == 3:
-            params.update({"price": "1,2,3"})
+            params.update({'price': '1,2,3'})
         else:
-            params.update({"price": request.args['price']})
+            params.update({'price': request.args['price']})
 
     if 'categories' in request.args.keys():
         cuisine = request.args['categories']
-        params.update({"term": f'{cuisine}'})
+        params.update({'term': f'{cuisine}'})
 
     if 'travel' in request.args.keys() and request.args['travel'] == 'walk':
-        params.update({"radius": 1600})
+        params.update({'radius': 1600})
     else:
-        params.update({"radius": 16000})
+        params.update({'radius': 16000})
 
     return params
 
-
 if __name__ == '__main__':
     app.run()
-
-
