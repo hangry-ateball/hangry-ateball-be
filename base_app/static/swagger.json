@@ -13,6 +13,40 @@
   "basePath" : "/api/v1",
   "schemes" : [ "http" ],
   "paths" : {
+    "/notify": {
+      "get" : {
+        "summary" : "sends an SMS",
+        "description" : "By providing the required options, this will send an SMS invitation to join a friend at a specified location.\n",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "to",
+          "in" : "query",
+          "description" : "Provide an SMS-enabled phone number to receive a notification.",
+          "required" : true,
+          "type" : "integer"
+        }, {
+          "name" : "from",
+          "in" : "query",
+          "description" : "Provide a Twilio SMS-enabled phone number from which to send a notification.",
+          "required" : true,
+          "type" : "integer"
+        }, {
+          "name" : "body",
+          "in" : "query",
+          "description" : "Provide an establishment name and address to be appended to the SMS notifcation: 'Hangry Ateball invites you to join your friend at...'",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "status of the API request to send a message"
+          },
+          "400" : {
+            "description" : "invalid input"
+          }
+        }
+      }
+    },
     "/random" : {
       "get" : {
         "summary" : "search for a random restaurant recommendation",
