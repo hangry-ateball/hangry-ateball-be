@@ -9,7 +9,7 @@
       "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
     }
   },
-  "host" : "hangry-ateball-api.herokuapp.com",
+  "host" : "hangry-ateball-staging.herokuapp.com",
   "basePath" : "/api/v1",
   "schemes" : [ "http" ],
   "paths" : {
