@@ -33,8 +33,11 @@ class YelpService:
                     ids.append(x['id'])
                 else:
                     continue
-        restaurant = random.choice(ids)
-        return restaurant
+        if len(ids) != 0:
+            restaurant_id = random.choice(ids)
+            return restaurant_id
+        else:
+            return False
 
     def connection(self, url, params = ''):
         YELP_API_KEY = os.getenv('YELP_API_KEY')
