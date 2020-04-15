@@ -4,6 +4,7 @@ import random
 import requests
 from base_app.models.restaurant import Restaurant
 from base_app.models.restaurant_schema import RestaurantSchema
+from base_app.services.google_service import GoogleService
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -14,7 +15,9 @@ class YelpService:
         url = 'https://api.yelp.com/v3/businesses/{}'.format(restaurant_id)
         response = self.connection(url)
         json_data = json.dumps(response.json())
-        recommendation = Restaurant.from_json(json_data)
+        google_service = GoogleService()
+        website = google_service.get_website(json_data)
+        recommendation = Restaurant.from_json(json_data, website)
         schema = RestaurantSchema()
         result = schema.dump(recommendation)
         return result
