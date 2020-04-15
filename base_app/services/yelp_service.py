@@ -27,11 +27,12 @@ class YelpService:
         response = self.connection(url, params)
         all = response.json()
         ids = []
-        for x in all['businesses']:
-            if x.get('price') != None:
-                ids.append(x['id'])
-            else:
-                continue
+        if response.status_code == 200 and 'businesses' in all.keys():
+            for x in all['businesses']:
+                if x.get('price') != None:
+                    ids.append(x['id'])
+                else:
+                    continue
         restaurant = random.choice(ids)
         return restaurant
 
