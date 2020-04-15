@@ -27,8 +27,9 @@ class GoogleService:
         url = 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json'
         params.update({'inputtype': 'textquery'})
         response = self.connection(url, params)
-        if response.status_code == 200 and 'candidates' in response.json.keys():
-            return response.json['candidates'][0]['place_id']
+        json = response.json()
+        if response.status_code == 200 and 'candidates' in json.keys():
+            return json['candidates'][0]['place_id']
         else:
             return {'Invalid Request': 'Params required are locationbias: point:<lat>,<long> -and- input: <restaurant_name>'}
 
@@ -42,5 +43,6 @@ class GoogleService:
         params = {'place_id': place_id}
         url = 'https://maps.googleapis.com/maps/api/place/details/json'
         response = self.connection(url, params)
-        if response.status_code == 200 and 'result' in response.json.keys():
-            return response.json['result']['website']
+        json_result = response.json()
+        if response.status_code == 200 and 'result' in json_result.keys():
+            return json_result['result']['website']
