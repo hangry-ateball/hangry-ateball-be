@@ -28,8 +28,10 @@ class GoogleService:
         params.update({'inputtype': 'textquery'})
         response = self.connection(url, params)
         json = response.json()
-        if response.status_code == 200 and 'candidates' in json.keys():
+        if response.status_code == 200 and len(json['candidates']) > 0:
             return json['candidates'][0]['place_id']
+        else:
+            return False
 
     def get_website(self, json_data):
         yelp_data = json.loads(json_data)
