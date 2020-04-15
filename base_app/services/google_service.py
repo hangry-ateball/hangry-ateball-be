@@ -42,7 +42,7 @@ class GoogleService:
         url = 'https://maps.googleapis.com/maps/api/place/details/json'
         response = self.connection(url, params)
         json_result = response.json()
-        if response.status_code == 200 and 'result' in json_result.keys():
+        if response.status_code == 200 and 'website' in json_result.keys():
             return json_result['result']['website']
         else:
             return yelp_data['url']
