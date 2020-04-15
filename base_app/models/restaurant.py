@@ -15,7 +15,7 @@ class Restaurant:
         self.website = website
 
     @classmethod
-    def from_json(cls, json_string):
+    def from_json(cls, json_string, restaurant_website):
         info = json.loads(json_string)
         categories = []
         for i in info['categories']:
@@ -30,4 +30,5 @@ class Restaurant:
             info['rating'],
             info['price'],
             info['is_closed'],
-            info['photos'])
+            info['photos'],
+            restaurant_website)
