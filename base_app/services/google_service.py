@@ -30,5 +30,13 @@ class GoogleService:
         if response.status_code == 200 and 'candidates' in response.json.keys():
             return response.json['candidates'][0]['place_id']
         else:
-            return {'Invalid Request': "Params required are 'locationbias': 'point:<lat>,<long>' and 'input': '<restaurant_name>'"}
+            return {'Invalid Request': 'Params required are locationbias: point:<lat>,<long> -and- input: <restaurant_name>'}
 
+    def get_website(self, json_data):
+        yelp_data = json.loads(json_data)
+        lat = yelp_data['coordinates']['latitude']
+        long = yelp_data['coordinates']['longitude']
+        place_id_params = {'locationbias': f'point:{lat},{long}', 'input': yelp_data['name']}
+        place_id = self.get_place_id(place_id_params)
+
+        url = 'https://maps.googleapis.com/maps/api/place/details/json'
