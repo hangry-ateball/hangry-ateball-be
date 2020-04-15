@@ -16,7 +16,7 @@ class YelpService:
             url = 'https://api.yelp.com/v3/businesses/{}'.format(restaurant_id)
             response = self.connection(url)
             json_data = json.dumps(response.json())
-            if isinstance(response.json()['coordinates']['latitude'], float):
+            if 'coordinates' in response.json() and isinstance(response.json()['coordinates']['latitude'], float):
                 google_service = GoogleService()
                 website = google_service.get_website(json_data)
             elif 'url' in response.json().keys(): # Will return the Restaurant's Yelp Business Page if no Coordinates available
