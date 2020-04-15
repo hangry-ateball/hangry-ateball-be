@@ -25,7 +25,7 @@ class GoogleService:
 
     def get_place_id(self, params):
         url = 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json'
-        params.update({'inputtype': 'textquery')
+        params.update({'inputtype': 'textquery'})
         response = self.connection(url, params)
         if response.status_code == 200 and 'candidates' in response.json.keys():
             return response.json['candidates'][0]['place_id']
@@ -42,5 +42,5 @@ class GoogleService:
         params = {'place_id': place_id}
         url = 'https://maps.googleapis.com/maps/api/place/details/json'
         response = self.connection(url, params)
-        if response.status_code == 200: and 'result' in response.json.keys():
+        if response.status_code == 200 and 'result' in response.json.keys():
             return response.json['result']['website']
