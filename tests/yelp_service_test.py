@@ -33,6 +33,9 @@ def test_can_get_recommendation():
     assert 'photos' in response['data']['attributes']
     assert response['data']['attributes']['is_closed'] == False
 
+def test_can_tell_when_no_nearby_restaurants():
+    params = {'latitude': '90.00', 'longitude': '135.00'}
+    service = YelpService()
+    response = service.get_recommendation(params)
 
-
-
+    assert response == {'error': "It appears there aren't any restaurants open near you right now."}

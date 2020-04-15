@@ -10,9 +10,10 @@ def test_can_initialize():
 def test_google_api_returns_successful_response():
     GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
     address = '1331 17th St LL100, Denver, CO'
+    url = 'https://maps.googleapis.com/maps/api/geocode/json'
     params = {'key': GOOGLE_API_KEY, 'address': f'{address}' }
     service = GoogleService()
-    response = service.connection(params)
+    response = service.connection(url, params)
     status = response.status_code
     assert response.status_code == 200
 

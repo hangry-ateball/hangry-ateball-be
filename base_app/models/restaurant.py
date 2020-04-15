@@ -1,7 +1,7 @@
 import json
 
 class Restaurant:
-    def __init__(self, id, name, categories, location, phone, display_phone, rating, price, is_closed, photos):
+    def __init__(self, id, name, categories, location, phone, display_phone, rating, price, is_closed, photos, website):
         self.id = id
         self.cuisine = categories
         self.name = name
@@ -12,9 +12,10 @@ class Restaurant:
         self.price = price
         self.is_closed = is_closed
         self.photos = photos
+        self.website = website
 
     @classmethod
-    def from_json(cls, json_string):
+    def from_json(cls, json_string, restaurant_website):
         info = json.loads(json_string)
         categories = []
         for i in info['categories']:
@@ -29,4 +30,5 @@ class Restaurant:
             info['rating'],
             info['price'],
             info['is_closed'],
-            info['photos'])
+            info['photos'],
+            restaurant_website)

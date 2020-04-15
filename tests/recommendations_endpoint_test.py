@@ -17,6 +17,7 @@ def test_user_selects_multiple_preferences_returns_successful_response():
     response_body = response.json
     price = len(response_body['data']['attributes']['price'])
 
+    assert price <= 2
     assert 'id' in response_body['data']
     assert 'cuisine' in response_body['data']['attributes']
     assert 'name' in response_body['data']['attributes']
@@ -25,7 +26,7 @@ def test_user_selects_multiple_preferences_returns_successful_response():
     assert 'display_phone' in response_body['data']['attributes']
     assert 'rating' in response_body['data']['attributes']
     assert 'price' in response_body['data']['attributes']
-    assert price <= 2
+    assert 'website' in response_body['data']['attributes']
     assert response_body['data']['attributes']['is_closed'] == False
 
 def test_user_selects_food_preference_returns_successful_response():
@@ -49,6 +50,7 @@ def test_user_selects_food_preference_returns_successful_response():
     assert 'display_phone' in response_body['data']['attributes']
     assert 'rating' in response_body['data']['attributes']
     assert 'price' in response_body['data']['attributes']
+    assert 'website' in response_body['data']['attributes']
     assert response_body['data']['attributes']['is_closed'] == False
 
 def test_user_selects_price_preference_returns_successful_response():
@@ -70,6 +72,7 @@ def test_user_selects_price_preference_returns_successful_response():
     assert 'display_phone' in response_body['data']['attributes']
     assert 'rating' in response_body['data']['attributes']
     assert 'price' in response_body['data']['attributes']
+    assert 'website' in response_body['data']['attributes']
     assert response_body['data']['attributes']['is_closed'] == False
 
 def test_user_selects_price_preference_1_returns_successful_response():
@@ -151,6 +154,7 @@ def test_user_enters_only_full_address_and_gets_successful_response():
     assert 'display_phone' in response_body['data']['attributes']
     assert 'rating' in response_body['data']['attributes']
     assert 'price' in response_body['data']['attributes']
+    assert 'website' in response_body['data']['attributes']
     assert response_body['data']['attributes']['is_closed'] == False
 
 def test_user_enters_city_and_gets_successful_response():
@@ -168,6 +172,7 @@ def test_user_enters_city_and_gets_successful_response():
     assert 'display_phone' in response_body['data']['attributes']
     assert 'rating' in response_body['data']['attributes']
     assert 'price' in response_body['data']['attributes']
+    assert 'website' in response_body['data']['attributes']
     assert response_body['data']['attributes']['is_closed'] == False
 
 def test_user_enters_state_and_gets_successful_response():
@@ -185,6 +190,7 @@ def test_user_enters_state_and_gets_successful_response():
     assert 'display_phone' in response_body['data']['attributes']
     assert 'rating' in response_body['data']['attributes']
     assert 'price' in response_body['data']['attributes']
+    assert 'website' in response_body['data']['attributes']
     assert response_body['data']['attributes']['is_closed'] == False
 
 
