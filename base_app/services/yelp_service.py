@@ -29,7 +29,7 @@ class YelpService:
             params.pop('radius', None)
             self.get_recommendation(params)
         else:
-            return {'Error': "It appears there aren't any restaurants open near you right now."}
+            return {'error': "It appears there aren't any restaurants open near you right now."}
 
     def get_restaurant(self, params):
         url = 'https://api.yelp.com/v3/businesses/search'
