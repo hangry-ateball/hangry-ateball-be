@@ -38,4 +38,4 @@ def test_can_tell_when_no_nearby_restaurants():
     service = YelpService()
     response = service.get_recommendation(params)
 
-    assert response == {'Error': "It appears there aren't any restaurants open near you right now."}
+    assert response == {'error': "It appears there aren't any restaurants open near you right now."}
