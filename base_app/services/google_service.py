@@ -38,11 +38,11 @@ class GoogleService:
         place_id_params = {'locationbias': f'point:{lat},{long}', 'input': yelp_data['name']}
         place_id = self.get_place_id(place_id_params)
 
-        params = {'place_id': place_id}
-        url = 'https://maps.googleapis.com/maps/api/place/details/json'
-        response = self.connection(url, params)
-        json_result = response.json()
-        if response.status_code == 200 and 'website' in json_result.keys():
-            return json_result['result']['website']
-        else:
-            return yelp_data['url']
+        if place_id:
+            params = {'place_id': place_id}
+            url = 'https://maps.googleapis.com/maps/api/place/details/json'
+            response = self.connection(url, params)
+            json_result = response.json()
+            if response.status_code == 200 and 'website' in json_result.keys():
+                return json_result['result']['website']
+        return yelp_data['url'] # Will only run if Both if statements fail to fulfill
