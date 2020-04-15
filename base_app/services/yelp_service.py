@@ -22,7 +22,8 @@ class YelpService:
             schema = RestaurantSchema()
             result = schema.dump(recommendation)
             return result
-        elif params.pop('radius'): # Will return a KeyError if 'radius' has already been removed recursively since 2nd argument of `None` is omitted
+        elif 'radius' in params.keys() and params['radius'] == 16000:
+            params.pop('radius', None)
             self.get_recommendation(params)
         else:
             return {'Error': "It appears there aren't any restaurants open near you right now."}
