@@ -30,8 +30,6 @@ class GoogleService:
         json = response.json()
         if response.status_code == 200 and 'candidates' in json.keys():
             return json['candidates'][0]['place_id']
-        else:
-            return {'Invalid Request': 'Params required are locationbias: point:<lat>,<long> -and- input: <restaurant_name>'}
 
     def get_website(self, json_data):
         yelp_data = json.loads(json_data)
@@ -46,3 +44,5 @@ class GoogleService:
         json_result = response.json()
         if response.status_code == 200 and 'result' in json_result.keys():
             return json_result['result']['website']
+        else:
+            return yelp_data['url']
