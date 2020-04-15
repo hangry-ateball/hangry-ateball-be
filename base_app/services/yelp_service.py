@@ -12,15 +12,20 @@ class YelpService:
 
     def get_recommendation(self, params):
         restaurant_id = self.get_restaurant(params)
-        url = 'https://api.yelp.com/v3/businesses/{}'.format(restaurant_id)
-        response = self.connection(url)
-        json_data = json.dumps(response.json())
-        google_service = GoogleService()
-        website = google_service.get_website(json_data)
-        recommendation = Restaurant.from_json(json_data, website)
-        schema = RestaurantSchema()
-        result = schema.dump(recommendation)
-        return result
+        if restaurant_id:
+            url = 'https://api.yelp.com/v3/businesses/{}'.format(restaurant_id)
+            response = self.connection(url)
+            json_data = json.dumps(response.json())
+            google_service = GoogleService()
+            website = google_service.get_website(json_data)
+            recommendation = Restaurant.from_json(json_data, website)
+            schema = RestaurantSchema()
+            result = schema.dump(recommendation)
+            return result
+        elif params.pop('radius'):
+            self.get_recommendation(params)
+        else:
+            {'Error': "It appears there aren't any restaurants open near you right now."}
 
     def get_restaurant(self, params):
         url = 'https://api.yelp.com/v3/businesses/search'
