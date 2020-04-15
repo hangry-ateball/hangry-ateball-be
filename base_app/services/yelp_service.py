@@ -21,6 +21,8 @@ class YelpService:
                 website = google_service.get_website(json_data)
             elif 'url' in response.json().keys(): # Will return the Restaurant's Yelp Business Page if no Coordinates available
                 website = response.json()['url']
+            else:
+                website = "No website available"
             recommendation = Restaurant.from_json(json_data, website)
             schema = RestaurantSchema()
             result = schema.dump(recommendation)
