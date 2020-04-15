@@ -25,7 +25,7 @@ class YelpService:
         elif params.pop('radius'): # Will return a KeyError if 'radius' has already been removed recursively since 2nd argument of `None` is omitted
             self.get_recommendation(params)
         else:
-            {'Error': "It appears there aren't any restaurants open near you right now."}
+            return {'Error': "It appears there aren't any restaurants open near you right now."}
 
     def get_restaurant(self, params):
         url = 'https://api.yelp.com/v3/businesses/search'
