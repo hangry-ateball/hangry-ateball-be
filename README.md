@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.com/hangry-ateball/hangry-ateball-be.svg?branch=master)](https://travis-ci.com/hangry-ateball/hangry-ateball-be)
 
 # Hangry-Ateball-BE
+[!](https://im4.ezgif.com/tmp/ezgif-4-a30855586948.gif)
 You are on your lunch break.  You've already eaten Chipotle 3 times this week.  You and your group of friends decide that it's time to change it up.  Everyone is "down for anything" but nobody can make a concrete decision.  That's when you whip out your phone and open up Hangry Ateball.
 
 This repo is for a [REST API] (https://hangry-ateball-api.herokuapp.com/) that consumes the Yelp and Google Maps API. It serves to return Restaurant information as a JSON object for our [Front End application](https://github.com/hangry-ateball/hangry-ateball-fe), where the restaurant information can be displayed to the User.
