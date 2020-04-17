@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.com/hangry-ateball/hangry-ateball-be.svg?branch=master)](https://travis-ci.com/hangry-ateball/hangry-ateball-be)
 
 # Hangry-Ateball-BE
-[!](https://im4.ezgif.com/tmp/ezgif-4-a30855586948.gif)
+![](https://im4.ezgif.com/tmp/ezgif-4-a30855586948.gif)
 You are on your lunch break.  You've already eaten Chipotle 3 times this week.  You and your group of friends decide that it's time to change it up.  Everyone is "down for anything" but nobody can make a concrete decision.  That's when you whip out your phone and open up Hangry Ateball.
 
 This repo is for a [REST API] (https://hangry-ateball-api.herokuapp.com/) that consumes the Yelp and Google Maps API. It serves to return Restaurant information as a JSON object for our [Front End application](https://github.com/hangry-ateball/hangry-ateball-fe), where the restaurant information can be displayed to the User.
@@ -45,7 +45,7 @@ Hangry Ateball replicates the future-deciding 8 Ball by finding a nearby restaur
         - `categories`, string (can be a comma delimited list), i.e. Chinese
         - `price`, maximum price point, integer between 1 and 4, i.e. 3 (will also search for restaurants with price point of 2 and 1)
         - `address`, use only if latitude and longitude not submitted, string, i.e. 1331 17th St LL100, Denver, CO or Denver, CO
-    - Response Example: [!](hangry-ateball-be/base_app/static/random_example.png)
+    - Response Example: ![](hangry-ateball-be/base_app/static/random_example.png)
 - Endpoint `/api/v1/random`
     - Returns random restaurant recommendation
     - Required params:
@@ -53,7 +53,7 @@ Hangry Ateball replicates the future-deciding 8 Ball by finding a nearby restaur
         -`longitude`, integer, i.e. -104.990251
     - Optional params:
         - `address`, use only if latitude and longitude not submitted, string, i.e. 1331 17th St LL100, Denver, CO or Denver, CO
-    - Response Example: [!](hangry-ateball-be/base_app/static/recommendation_example.png)
+    - Response Example: ![](hangry-ateball-be/base_app/static/recommendation_example.png)
 - Endpoint `/api/v1/notify`
     - Sends an SMS invitation to join a friend at a specified location.
     - Required params:
@@ -80,7 +80,7 @@ Hangry Ateball replicates the future-deciding 8 Ball by finding a nearby restaur
 - Successful workflow and communication between FE and BE teams.
 - We made an app we would actually use!
 - High testing coverage for backend
-- [!](hangry-ateball-be/base_app/static/test_coverage.png)
+- ![](hangry-ateball-be/base_app/static/test_coverage.png)
 
 #### Challenges
 - Learning Python and [.
