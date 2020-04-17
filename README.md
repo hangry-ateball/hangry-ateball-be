@@ -46,7 +46,7 @@ Hangry Ateball replicates the future-deciding 8 Ball by finding a nearby restaur
         - `price`, maximum price point, integer between 1 and 4, i.e. 3 (will also search for restaurants with price point of 2 and 1)
         - `address`, use only if latitude and longitude not submitted, string, i.e. 1331 17th St LL100, Denver, CO or Denver, CO
     - Response Example:
-        <img alt="homepage screenshot" width="50%" src="https://user-images.githubusercontent.com/54052410/79527223-43080b00-8024-11ea-8314-3a4dfa9d6625.png" />
+        <img alt="homepage screenshot" width="90%" src="https://user-images.githubusercontent.com/54052410/79527223-43080b00-8024-11ea-8314-3a4dfa9d6625.png" />
 - Endpoint `/api/v1/random`
     - Returns random restaurant recommendation
     - Required params:
@@ -55,7 +55,7 @@ Hangry Ateball replicates the future-deciding 8 Ball by finding a nearby restaur
     - Optional params:
         - `address`, use only if latitude and longitude not submitted, string, i.e. 1331 17th St LL100, Denver, CO or Denver, CO
     - Response Example:
-            <img alt="homepage screenshot" width="50%" src="https://user-images.githubusercontent.com/54052410/79527228-44d1ce80-8024-11ea-8d9e-9d745b73c2bd.png" />
+            <img alt="homepage screenshot" width="90%" src="https://user-images.githubusercontent.com/54052410/79527228-44d1ce80-8024-11ea-8d9e-9d745b73c2bd.png" />
 - Endpoint `/api/v1/notify`
     - Sends an SMS invitation to join a friend at a specified location.
     - Required params:
@@ -82,7 +82,7 @@ Hangry Ateball replicates the future-deciding 8 Ball by finding a nearby restaur
 - Successful workflow and communication between FE and BE teams.
 - We made an app we would actually use!
 - Great testing coverage for backend.
-<img alt="homepage screenshot" width="50%" src="https://user-images.githubusercontent.com/54052410/79527232-48fdec00-8024-11ea-8b53-725b88b77dc0.png" />
+<img alt="homepage screenshot" width="90%" src="https://user-images.githubusercontent.com/54052410/79527232-48fdec00-8024-11ea-8b53-725b88b77dc0.png" />
 
 #### Challenges
 - Learning Python and Flask.
