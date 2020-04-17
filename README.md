@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.com/hangry-ateball/hangry-ateball-be.svg?branch=master)](https://travis-ci.com/hangry-ateball/hangry-ateball-be)
-[![Coverage Status](https://coveralls.io/repos/github/<your-account>/<your-repo>/badge.svg?branch=master)](https://coveralls.io/github/freeheeling/hangry-ateball-be?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/<your-account>/<your-repo>/badge.svg)](https://coveralls.io/github/freeheeling/hangry-ateball-be?branch=master)
 
 # Hangry-Ateball-BE
 ![](https://im4.ezgif.com/tmp/ezgif-4-a30855586948.gif)</br>
