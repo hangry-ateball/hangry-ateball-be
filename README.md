@@ -4,7 +4,7 @@
 ![](https://im4.ezgif.com/tmp/ezgif-4-a30855586948.gif)</br>
 You are on your lunch break.  You've already eaten Chipotle 3 times this week.  You and your group of friends decide that it's time to change it up.  Everyone is "down for anything" but nobody can make a concrete decision.  That's when you whip out your phone and open up Hangry Ateball.
 
-This repo is for a [REST API] (https://hangry-ateball-api.herokuapp.com/) that consumes the Yelp and Google Maps API. It serves to return Restaurant information as a JSON object for our [Front End application](https://github.com/hangry-ateball/hangry-ateball-fe), where the restaurant information can be displayed to the User.
+This repo is for a [REST API](https://hangry-ateball-api.herokuapp.com/) that consumes the Yelp and Google Maps API. It serves to return Restaurant information as a JSON object for our [Front End application](https://github.com/hangry-ateball/hangry-ateball-fe), where the restaurant information can be displayed to the User.
 
 Hangry Ateball replicates the future-deciding 8 Ball by finding a nearby restaurant for you!  You can decide what kind of food (or leave it up to fate) as well as cost and if you want to walk or drive and the app will do the rest for you.  From the results screen, you can easily open maps to navigate to the restaurant or send the information to your friends via text with the click of a button.  It's munch time.  Where will you be?
 
@@ -46,7 +46,7 @@ Hangry Ateball replicates the future-deciding 8 Ball by finding a nearby restaur
         - `price`, maximum price point, integer between 1 and 4, i.e. 3 (will also search for restaurants with price point of 2 and 1)
         - `address`, use only if latitude and longitude not submitted, string, i.e. 1331 17th St LL100, Denver, CO or Denver, CO
     - Response Example:
-        <img alt="homepage screenshot" width="90%" src="https://user-images.githubusercontent.com/54052410/79527223-43080b00-8024-11ea-8314-3a4dfa9d6625.png" />
+        <img alt="homepage screenshot" width="95%" src="https://user-images.githubusercontent.com/54052410/79527223-43080b00-8024-11ea-8314-3a4dfa9d6625.png" />
 - Endpoint `/api/v1/random`
     - Returns random restaurant recommendation
     - Required params:
@@ -55,7 +55,7 @@ Hangry Ateball replicates the future-deciding 8 Ball by finding a nearby restaur
     - Optional params:
         - `address`, use only if latitude and longitude not submitted, string, i.e. 1331 17th St LL100, Denver, CO or Denver, CO
     - Response Example:
-            <img alt="homepage screenshot" width="90%" src="https://user-images.githubusercontent.com/54052410/79527228-44d1ce80-8024-11ea-8d9e-9d745b73c2bd.png" />
+            <img alt="homepage screenshot" width="95%" src="https://user-images.githubusercontent.com/54052410/79527228-44d1ce80-8024-11ea-8d9e-9d745b73c2bd.png" />
 - Endpoint `/api/v1/notify`
     - Sends an SMS invitation to join a friend at a specified location.
     - Required params:
