@@ -45,7 +45,8 @@ Hangry Ateball replicates the future-deciding 8 Ball by finding a nearby restaur
         - `categories`, string (can be a comma delimited list), i.e. Chinese
         - `price`, maximum price point, integer between 1 and 4, i.e. 3 (will also search for restaurants with price point of 2 and 1)
         - `address`, use only if latitude and longitude not submitted, string, i.e. 1331 17th St LL100, Denver, CO or Denver, CO
-    - Response Example: ![](hangry-ateball-be/base_app/images/random_example.png)
+    - Response Example:
+        <img alt="homepage screenshot" width="50%" src="https://user-images.githubusercontent.com/54052410/79527223-43080b00-8024-11ea-8314-3a4dfa9d6625.png" />
 - Endpoint `/api/v1/random`
     - Returns random restaurant recommendation
     - Required params:
@@ -53,7 +54,8 @@ Hangry Ateball replicates the future-deciding 8 Ball by finding a nearby restaur
         -`longitude`, integer, i.e. -104.990251
     - Optional params:
         - `address`, use only if latitude and longitude not submitted, string, i.e. 1331 17th St LL100, Denver, CO or Denver, CO
-    - Response Example: ![](hangry-ateball-be/base_app/images/recommendation_example.png)
+    - Response Example:
+            <img alt="homepage screenshot" width="50%" src="https://user-images.githubusercontent.com/54052410/79527228-44d1ce80-8024-11ea-8d9e-9d745b73c2bd.png" />
 - Endpoint `/api/v1/notify`
     - Sends an SMS invitation to join a friend at a specified location.
     - Required params:
@@ -79,11 +81,11 @@ Hangry Ateball replicates the future-deciding 8 Ball by finding a nearby restaur
 - Achieved MVP with extensions before deadline.
 - Successful workflow and communication between FE and BE teams.
 - We made an app we would actually use!
-- High testing coverage for backend
-![](hangry-ateball-be/base_app/images/test_coverage.png)
+- Great testing coverage for backend.
+<img alt="homepage screenshot" width="50%" src="https://user-images.githubusercontent.com/54052410/79527232-48fdec00-8024-11ea-8b53-725b88b77dc0.png" />
 
 #### Challenges
-- Learning Python and [.
+- Learning Python and Flask.
 - Using new testing framework, Pytest and other new technologies/tools like Twilio, and Swagger.
 - COVID-19 impacts including remote work and affecting live restaurant data.
 
