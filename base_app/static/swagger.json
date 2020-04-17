@@ -11,7 +11,7 @@
   },
   "host" : "hangry-ateball-api.herokuapp.com",
   "basePath" : "/api/v1",
-  "schemes" : [ "http" ], ["https"]
+  "schemes" : [ "https", "http" ],
   "paths" : {
     "/notify": {
       "get" : {
