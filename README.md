@@ -39,8 +39,8 @@ Hangry Ateball replicates the future-deciding 8 Ball by finding a nearby restaur
     - Returns restaurant recommendation based on user's preferences
     - Required params:
         - Note: If latitude and longitude are not available, address can be entered instead.
-        -`latitude`, integer, i.e. 39.7392358
-        -`longitude`, integer, i.e. -104.990251
+        - `latitude`, integer, i.e. 39.7392358
+        - `longitude`, integer, i.e. -104.990251
     - Optional params:
         - `categories`, string (can be a comma delimited list), i.e. Chinese
         - `price`, maximum price point, integer between 1 and 4, i.e. 3 (will also search for restaurants with price point of 2 and 1)
@@ -50,8 +50,8 @@ Hangry Ateball replicates the future-deciding 8 Ball by finding a nearby restaur
 - Endpoint `/api/v1/random`
     - Returns random restaurant recommendation
     - Required params:
-        -`latitude`, integer, i.e. 39.7392358
-        -`longitude`, integer, i.e. -104.990251
+        - `latitude`, integer, i.e. 39.7392358
+        - `longitude`, integer, i.e. -104.990251
     - Optional params:
         - `address`, use only if latitude and longitude not submitted, string, i.e. 1331 17th St LL100, Denver, CO or Denver, CO
     - Response Example:
