@@ -4,10 +4,14 @@ python:
 before_install:
 - pip install -U pip
 install:
+- pip install coverage
+- pip install coveralls
 - pip install -r requirements.txt
 script:
 - coverage erase
 - coverage run -m pytest && coverage html
+after_success:
+  - coveralls
 deploy:
 - provider: heroku
   api_key:
